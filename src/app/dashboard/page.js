@@ -1,61 +1,55 @@
 "use client"
 
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
-import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import io from "socket.io-client";
 
 const START_LIGHTS = {
-    light1: { backgroundColor: "#ef4444" },
-    light3: { backgroundColor: "#ef4444" },
-    light2: { backgroundColor: "#ef4444" },
-    light4: { backgroundColor: "#ef4444" },
-}
+    light1: "#ef4444",
+    light3: "#ef4444",
+    light2: "#ef4444",
+    light4: "#ef4444",
+};
 
 export default function Home() {
     const { isAuthenticated, isLoading } = useKindeBrowserClient();
+    const [lights, setLights] = useState(START_LIGHTS);
 
-    const [lights, setLights] = useState({
-        light1: { backgroundColor: "#ef4444" },
-        light3: { backgroundColor: "#ef4444" },
-        light2: { backgroundColor: "#ef4444" },
-        light4: { backgroundColor: "#ef4444" },
-    });
+    useEffect(() => {
+        const socket = io.connect("http://127.0.0.1:5000");
 
-    function UpdateLane(lane) {
-        if (lane === 1) {
-            setLights(prev => ({
-                ...START_LIGHTS,
-                light1: { backgroundColor: "#10b981" },
-            }))
-        }
-        else if (lane === 2) {
-            setLights(prev => ({
-                ...START_LIGHTS,
-                light2: { backgroundColor: "#10b981" },
-            }))
-        }
-        else if (lane === 3) {
-            setLights(prev => ({
-                ...START_LIGHTS,
-                light3: { backgroundColor: "#10b981" },
-            }))
-        }
-        else if (lane === 4) {
-            setLights(prev => ({
-                ...START_LIGHTS,
-                light4: { backgroundColor: "#10b981" },
-            }))
-        }
-    }
+        socket.on('connect', () => {
+            socket.emit('connection');
+            console.log('Connected to server');
+        });
+
+        socket.on('disconnect', () => {
+            console.log('Disconnected from server');
+        });
+
+        const handleLightsUpdate = (updatedLights) => {
+            console.log(updatedLights);
+            setLights(updatedLights);
+        };
+
+        socket.on('lights_update', handleLightsUpdate);
+
+        return () => {
+            socket.off('lights_update', handleLightsUpdate);
+            socket.disconnect();
+        };
+    }, []);
 
     if (isLoading) return <div>Loading...</div>;
 
     return isAuthenticated ? (
         <>
-            <div style={lights.light1} onClick={() => UpdateLane(1)}> lane 1 </div>
-            <div style={lights.light2} onClick={() => UpdateLane(2)}> lane 2 </div>
-            <div style={lights.light3} onClick={() => UpdateLane(3)}> lane 3 </div>
-            <div style={lights.light4} onClick={() => UpdateLane(4)}> lane 4 </div>
+            <LogoutLink>Log out</LogoutLink>
+            <div style={{ backgroundColor: lights.light1 }}> lane 1 </div>
+            <div style={{ backgroundColor: lights.light2 }}> lane 2 </div>
+            <div style={{ backgroundColor: lights.light3 }}> lane 3 </div>
+            <div style={{ backgroundColor: lights.light4 }}> lane 4 </div>
         </>
     ) : (
         <div>
