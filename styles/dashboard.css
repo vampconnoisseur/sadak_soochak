@@ -1,0 +1,102 @@
+body {
+    /* background: linear-gradient(to bottom, #666666, #bbbbbb, #666666); */
+}
+
+.main-not-auth{
+    /* position: a; */
+    top:20%;
+    /* background-color: black; */
+    width:100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 20%;
+    gap:10%;
+    background: linear-gradient(to right, #FF4500, #FFDAB9);
+    /* background: linear-gradient(to bottom right, #E0BBE4, #957DAD, #D291BC, #FEC8D8); */
+    /* background: linear-gradient(to bottom right, #FFD700, #FF69B4, #00FFFF, #FF1493, #7FFF00); */
+}
+
+
+.not-auth{
+    font-size: larger;
+    position: relative;
+    top: 10%;
+    /* background-color: black; */
+    color: rgb(231, 46, 46);
+    background-color: rgba(255,255,255,0.7);
+    /* width: ; */
+    width: 32%;
+    border-radius: 20%;
+    height: 70%;
+    display: flex;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+    justify-content: center;
+    /* position: relative; */
+    /* top: 30%; */
+
+}
+.not-auth p{
+    position: relative;
+    top: 50%;
+}
+.main-not-auth img{
+    width: 30%;
+    /* height: 30%; */
+    border-radius: 20%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+    position: relative;
+    top: 10%;
+}
+.horizontal-line {
+    width: 100%; /* Lower the position of the line by 20% from the top */
+    margin: auto;
+    border-color: yellow; /* Change the color of the line to yellow */
+}
+
+
+/* *{
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto','sans sarif';
+    background-color: black;
+} */
+
+.text-wrapper{
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    background:black;
+    overflow: hidden;
+    top:20%;
+    z-index: 2;
+}
+
+.right{
+    font-size:60px;
+    text-transform:uppercase;
+    color:yellow;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: yellow;
+    white-space:nowrap;
+    /* padding: 0 6rem; */
+    letter-spacing: .5rem;
+    animation: move-rtl 6000ms linear infinite;
+}
+
+@keyframes move-rtl {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-100%)
+    }
+}
+.main-dashboard{
+    background-color:rgb(166, 210, 210) ;
+    width:100%;
+    height:100vh;
+}
