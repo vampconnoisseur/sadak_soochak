@@ -1,27 +1,28 @@
 *{
     margin: 0px;
     box-sizing: border-box;
-    font-family: "Roboto" , sans-serif;
+    font-family: sans-serif;
 
 }
+
 main{
     width: 100%;
     height: 1000px;
-    /* background-color: aqua; */
+    /* background-color: rgb(251, 0, 251); */
 
 }
 section{
     width:100%;
-    height: 100vh;
-    /* position: fixed; */
-    top: 5%;
+    height: 150vh;
+    /* position:; */
+    top: -52%;
     left:38%;
     right:45%;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: rgba(0,0,0,0.5); */
     background-color: rgba(0,0,0,0.5);
+    /* background-color: rgba(255,255,255,0.5); */
     z-index: 2;
 
 }
@@ -73,10 +74,7 @@ ul {
     height: 3rem;
 
   }
-  .icon-tag{
-    width:60%;
-    height:150%;
-}
+  
 .background-clip{
     position:absolute;
     right: 0px;
@@ -98,11 +96,13 @@ ul {
         height: 100%;
     }
 }
-
 .trafficrules{
   width: 100%;
-  height: 100vh;
-  background-color: rgb(255, 255, 255);
+  position: relative;
+  top: 15%;
+  left:-1%;
+  height: 1%;
+  background-color: transparent;
 }
 *{
   margin: 0px;
@@ -112,7 +112,7 @@ ul {
 
 .text-wrapper{
   position: relative;
-  top:-45%;
+  top:-450%; 
   display: flex;
   justify-content: flex-start;
   background:rgb(0, 0, 0);
@@ -121,11 +121,13 @@ ul {
 }
 
 .right{
+  border: 2PX solid white;
   font-size:50px;
-  font-weight: bolder;
+  /* display:; */
+  /* font-weight: bol; */
   text-transform:uppercase;
   color:transparent;
-  -webkit-text-stroke-width: 10px;
+  -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: rgb(255, 255, 255);
   /* -webkit-text-fill-color: rgb(255, 255, 255); */
   white-space:nowrap;
@@ -144,55 +146,97 @@ ul {
   }
 }
 .delay-div{
-  position: 'fixed';
+  position: fixed;
   top: 0;
   left: 0;
-  width: '100%';
-  background-color: rgba(255, 0, 0, 0.5);
+  width: 100%;
+  /* background-color: rgba(255, 0, 0, 0.5); */
   z-index:999;
-  padding: '10px';
- text-align: 'center' ;
+  padding: 10px;
+ text-align: center ;
 }
-.topDiv {
-  position: absolute;
-  width: 90%; /* Adjust as needed */
-  max-width: 700px; /* Optional: Limit the maximum width */
-  height: auto; /* Adjust based on content */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  z-index: 999;
-  padding: 0; /* Adjust padding to 0 */
+#home-head{
+  top:-120px;
+  background-color:black;
+}
+#traffic-symbol{
+  top:-35VH;
+}
+/* .basic-footer {
+  background-color: #333;
+  color: #fff;
   text-align: center;
-  border: 2px solid black;
-  border-radius: 5%;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+} */ 
+
+#advanced-footer {
+  background-color: #332626;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
 }
 
-.topDiv p {
-  font-size: 10vw; /* Adjust font size based on viewport width */
-  font-weight: 900;
-  margin: 0; /* Remove default margin */
-  padding: 20px; /* Add padding to the paragraph */
-  -webkit-text-stroke-width: 2px; /* Adjust the thickness of the outline */
-  -webkit-text-stroke-color: white; /* Set the color of the outline */
-  text-shadow: 0 0 0 rgba(0,0,0,0.5); 
-  /* background-clip:text; Clip the background to the text */
-  /* color: #FFFFFF; */
-      padding: 10px;
-      background-color: transparent;
-      color: transparent;
-      opacity:0.8;
-      border-radius: 5px 5px 5px 5px;
-      -moz-border-radius: 5px 5px 5px 5px;
-      -webkit-border-radius: 5px 5px 5px 5px;
-      background: -20px -20px repeat;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    display:block;
-  z-index: 2;;
+#footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+#footer-links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
+#footer-links ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
 
+#footer-links ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer-links ul li a:hover {
+  text-decoration: underline;color: wheat;
+}
+#contact-info p a{
+  color: wheat;
+} 
+.icon-tag{
+  width:60%;
+  height:150%;
+  position: relative;
+  z-index: 999999;
+}
+
+/* Style for preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 2s, transform 2s;
+}
+
+#preloader img {
+  width: 500px; /* Adjust the width of the preloader image */
+  transform: scale(1);
+  transition: transform 2s, opacity 2s;
+}
+
+/* Style to hide the content initially */
+.hidden {
+  display: none;
+}

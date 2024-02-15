@@ -1,5 +1,7 @@
 import React from "react";
-import "../styles/aboutUs.css";
+import "../../../styles/global.css"
+import "../../../styles/aboutUs.css";
+
 import Image from "next/image";
 
 export default function AboutUs() {
@@ -80,18 +82,24 @@ export default function AboutUs() {
                                     <input type="submit" className="send-btn" value="Send Message" />
                                 </form>
 
-                                    <div>
-                                        <img src="https://unsplash.com/photos/ocean-smashed-to-sand-during-golden-hour-Ete0zMKPWys" alt=""/>
-                                    </div>
+                                <div className="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.535735257775!2d76.84871217350964!3d23.07747641428055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397ce9ceaaaaaaab%3A0xa224b6b82b421f83!2sVIT%20Bhopal%20University!5e0!3m2!1sen!2sin!4v1707908470736!5m2!1sen!2sin" width="500" height="350" frameborder="0" style={{ border: 0 }} allowfullscreen="" aria-hidden="false" tabIndex="0"></iframe>
+                        </div>
                             </div>
                         </div>
 
-                        <div className="map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.535735257775!2d76.84871217350964!3d23.07747641428055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397ce9ceaaaaaaab%3A0xa224b6b82b421f83!2sVIT%20Bhopal%20University!5e0!3m2!1sen!2sin!4v1707908470736!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style={{ border: 0 }} allowfullscreen="" aria-hidden="false" tabIndex="0"></iframe>
-                        </div>
                     </div>
                 </div>
             </section>
+            <footer id="advanced-footer">
+    <div id="footer-content">
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+        <div id="contact-info">
+            <p>Contact us: <a href="mailto:info@example.com">info@example.com</a></p>
+        </div>
+    </div>
+</footer>
+
         </main>
     );
 }

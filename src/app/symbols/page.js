@@ -1,65 +1,20 @@
-"use client"
-import { RegisterLink, LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
-import '../../styles/global.css';
-import '../../styles/symbols.css';
-
-import React, { useEffect, useRef, useState } from 'react';
-import Link from "next/link";
-import Image from "next/image";
-
-export default function Home() {
-  const videoRef = useRef(null);
-  const [showDiv, setShowDiv] = useState(false); // State to control the visibility of the div
-  
-  
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.error('Autoplay was prevented:', error);
-      });
-    }
-
-    // Show the div after 10 seconds
-    const timeout = setTimeout(() => {
-      setShowDiv(true);
-    }, 1000);
-
-    
-
-    // Clean up the timeout
-    return () => clearTimeout(timeout);
-  }, []);
-  
-  return (
-    
-    <main>
-      
-      <section>
-        <video autoPlay loop muted playsInline ref={videoRef} className="background-clip">
-          <source src="/background-clip3.mp4" type="video/mp4" />
-        </video>
-      </section>
-
-      <section className="trafficrules">
-        <div className="text-wrapper" id="traffic-symbol">
-          <h1 className="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
-          <h1 className="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
-          <h1 className="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
-          <h1 className="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
-          <h1 className="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
-          <h1 className="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
-          <h1 className="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
+import React from "react";
+import "../../../styles/global.css"
+import "../../../styles/symbols.css"
+export default function Symbols(){
+    return (
+        <>
+        <section className="trafficrules">
+        <div class="text-wrapper"  >
+          <h1 class="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
+          <h1 class="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
+          <h1 class="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
+          <h1 class="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
+          <h1 class="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
+          <h1 class="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
+          <h1 class="right"> ⚠️⛔🚦TRAFFIC SYMBOLS ⚠️⛔🚦</h1> 
         </div>
-      </section>  
-
-      {/* {showDiv && ( */}
-        {/* <div className="topDiv"> */}
-          {/* <p>SADAK SOOCHAK</p> */}
-        {/* </div> */}
-      {/* )} */}
-      <div className="traffic-symbols">
-      {/* <h1 class="rules">TRAFFIC SYMBOLS</h1> */}
+      </section>
         <div class="container">
         <div class="tile">
             <img src="https://i.ibb.co/TvptDs1/traffic-lights.png" alt="Traffic Signal"/>
@@ -175,17 +130,6 @@ export default function Home() {
             </div>
         </div>
     </div>
-      </div>
-
-      <footer id="advanced-footer">
-    <div id="footer-content">
-        <p>&copy; 2024 Your Website. All rights reserved.</p>
-        <div id="contact-info">
-            <p>Contact us: <a href="mailto:info@example.com">info@example.com</a></p>
-        </div>
-    </div>
-</footer>
-
-    </main>
-  );
+        </>
+    );
 }
